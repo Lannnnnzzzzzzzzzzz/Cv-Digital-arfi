@@ -1,0 +1,589 @@
+/* ============================================================
+   CV Digital — Muhammad Nur Arfi Ramadhan
+   Arah desain: editorial bersih. Navy pekat sebagai warna utama,
+   kertas hangat sebagai latar, amber sebagai satu aksen yang
+   dipakai hanya pada elemen kunci (tautan aktif, tombol, nomor
+   bagian). Judul memakai serif agar karakter CV formal terasa,
+   isi memakai sans sistem agar tetap terbaca dan ringan.
+   ============================================================ */
+
+:root {
+  --navy: #16283f;
+  --navy-dark: #0f1c2e;
+  --paper: #faf7f1;
+  --card: #ffffff;
+  --ink: #23272e;
+  --ink-soft: #4c5560;
+  --line: #e2dccc;
+  --accent: #b97a1a;
+  --accent-bright: #e8a33d;
+  --radius: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--navy);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent-bright);
+  outline-offset: 2px;
+}
+
+/* ---------- Navigasi (Flexbox) ---------- */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 14px 24px;
+}
+
+.brand {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.45rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.brand-dot {
+  color: var(--accent-bright);
+}
+
+.nav-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  list-style: none;
+}
+
+.nav-menu a {
+  display: inline-block;
+  padding: 11px 10px;
+  color: #d9e2ee;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--accent-bright);
+  border-bottom-color: var(--accent-bright);
+}
+
+/* ---------- Header dan Profil (Flexbox) ---------- */
+
+.site-header {
+  background-color: var(--navy);
+  color: #f2f0e9;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 48px 24px 56px;
+}
+
+.profile-text {
+  flex: 1 1 auto;
+}
+
+.profile-kicker {
+  color: var(--accent-bright);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.profile h1 {
+  font-size: 2.6rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.profile-role {
+  font-size: 1.15rem;
+  color: #c8d4e2;
+  margin-bottom: 14px;
+}
+
+.profile-contact {
+  font-size: 0.95rem;
+  color: #aebccf;
+  margin-bottom: 26px;
+}
+
+.profile-contact a {
+  color: #d9e2ee;
+  text-decoration: none;
+  border-bottom: 1px dotted #7e93ad;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.profile-contact a:hover {
+  color: var(--accent-bright);
+  border-bottom-color: var(--accent-bright);
+}
+
+.separator {
+  margin: 0 8px;
+  color: #5f748e;
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent-bright);
+  color: var(--navy-dark);
+  border: 2px solid var(--accent-bright);
+}
+
+.btn-primary:hover {
+  background-color: #f2b558;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #7e93ad;
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-bright);
+  color: var(--accent-bright);
+  transform: translateY(-2px);
+}
+
+.profile-photo {
+  flex: 0 0 auto;
+}
+
+.profile-photo img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--accent-bright);
+  background-color: var(--navy-dark);
+}
+
+/* ---------- Bagian isi ---------- */
+
+.section {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 44px 24px 8px;
+}
+
+.section h2 {
+  font-size: 1.7rem;
+  color: var(--navy);
+  margin-bottom: 22px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--line);
+}
+
+.sec-num {
+  color: var(--accent);
+  font-style: italic;
+  margin-right: 12px;
+  font-size: 1.25rem;
+}
+
+/* About (Flexbox dua kolom) */
+
+.about-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.about-text {
+  flex: 1 1 auto;
+  color: var(--ink-soft);
+  font-size: 1.03rem;
+}
+
+.fact-box {
+  flex: 0 0 300px;
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent-bright);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+
+.fact-box h3 {
+  font-size: 1.05rem;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.fact-box ul {
+  list-style: none;
+}
+
+.fact-box li {
+  padding: 5px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.fact-box li:last-child {
+  border-bottom: none;
+}
+
+/* Pendidikan dan Pengalaman (Flexbox baris tanggal dan isi) */
+
+.entry {
+  display: flex;
+  gap: 28px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.entry:last-child {
+  border-bottom: none;
+}
+
+.entry-period {
+  flex: 0 0 130px;
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 0.95rem;
+  padding-top: 3px;
+}
+
+.entry-body {
+  flex: 1 1 auto;
+}
+
+.entry-body h3 {
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+
+.entry-place {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
+.entry-body ul {
+  margin-left: 20px;
+  color: var(--ink-soft);
+}
+
+.entry-body p {
+  color: var(--ink-soft);
+}
+
+/* Skills (CSS Grid) */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.skill-card {
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-bright);
+  box-shadow: 0 8px 20px rgba(22, 40, 63, 0.12);
+}
+
+.skill-card h3 {
+  font-size: 1.05rem;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.skill-card ul {
+  list-style: none;
+}
+
+.skill-card li {
+  padding: 4px 0 4px 16px;
+  position: relative;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.skill-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 7px;
+  height: 7px;
+  background-color: var(--accent-bright);
+}
+
+/* Portfolio (CSS Grid) */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.project-card {
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-bright);
+  box-shadow: 0 8px 20px rgba(22, 40, 63, 0.12);
+}
+
+.project-card h3 {
+  font-size: 1.12rem;
+  color: var(--navy);
+}
+
+.project-card p {
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tags span {
+  background-color: #f0e9d8;
+  color: #7c5a14;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.project-link {
+  margin-top: auto;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--accent);
+  transition: color 0.25s ease;
+}
+
+.project-link:hover {
+  color: var(--navy);
+  text-decoration: underline;
+}
+
+/* Kontak */
+
+.section-contact {
+  padding-bottom: 48px;
+}
+
+.contact-intro {
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
+
+.contact-list {
+  list-style: none;
+}
+
+.contact-list li {
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+.contact-list a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.contact-list a:hover {
+  color: var(--navy);
+  text-decoration: underline;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background-color: var(--navy-dark);
+  color: #aebccf;
+  text-align: center;
+  padding: 22px 24px;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+/* ---------- Responsif ---------- */
+
+@media (max-width: 720px) {
+  .navbar {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .profile {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 36px 20px 44px;
+    gap: 24px;
+  }
+
+  .profile h1 {
+    font-size: 2rem;
+  }
+
+  .profile-actions {
+    justify-content: center;
+  }
+
+  .about-layout {
+    flex-direction: column;
+  }
+
+  .fact-box {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .entry {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .entry-period {
+    flex: 0 0 auto;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Cetak (tombol Print CV) ---------- */
+
+@media print {
+  .navbar,
+  .profile-actions {
+    display: none;
+  }
+
+  body {
+    background-color: #ffffff;
+    font-size: 12pt;
+  }
+
+  .site-header {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .profile {
+    padding: 0 0 16px;
+  }
+
+  .profile h1,
+  .brand {
+    color: #000000;
+  }
+
+  .profile-role,
+  .profile-contact,
+  .profile-contact a {
+    color: #333333;
+  }
+
+  .profile-photo img {
+    border-color: #999999;
+    width: 120px;
+    height: 120px;
+  }
+
+  .section {
+    padding: 18px 0 0;
+  }
+
+  .skill-card,
+  .project-card,
+  .fact-box {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  .site-footer {
+    background-color: #ffffff;
+    color: #333333;
+  }
+}
